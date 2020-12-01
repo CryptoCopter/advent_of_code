@@ -1,3 +1,5 @@
+mod expenses;
+
 fn main() {
-    println!("Hello, world!");
+    expenses::expense_report("input/expenses.txt");
 }
