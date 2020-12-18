@@ -1,7 +1,8 @@
-mod passwords;
+mod toboggan;
 
 fn main() {
-    let (valid_sled, valid_toboggan) = passwords::check_passwords("input/passwords.txt");
-    println!("# of valid passwords (according to sled company): {}", valid_sled);
-    println!("# of valid passwords (according to toboggan) company: {}", valid_toboggan);
+    let toboggan_map = toboggan::load_map("input/trees.txt");
+    let slopes: Vec<(usize, usize)> = vec![(1, 1), (3, 1), (5, 1), (7, 1), (1, 2)];
+    println!("Number of trees encountered: {}", toboggan::count_trees(&toboggan_map, 3, 1));
+    println!("Cumulative trees for all slopes: {}", toboggan::eval_slopes(&toboggan_map, slopes));
 }
