@@ -13,8 +13,8 @@ pub(crate) fn check_passwords(path: &str) -> (u32, u32) {
         let policy_low = policy_parts[0].parse::<u32>().unwrap();
         let policy_high = policy_parts[1].parse::<u32>().unwrap();
 
-        let letter_blah: Vec<char> = parts[1].chars().collect();
-        let important_letter = letter_blah[0];
+        let letters: Vec<char> = parts[1].chars().collect();
+        let important_letter = letters[0];
 
         let mut occurences: u32 = 0;
         let letters: Vec<char> = parts[2].chars().collect();
@@ -23,7 +23,7 @@ pub(crate) fn check_passwords(path: &str) -> (u32, u32) {
             let letter = letters[i];
             if letter == important_letter {
                 occurences = occurences + 1;
-                if (i as u32 == policy_low-1) || (i as u32 == policy_high-1) {
+                if (i as u32 == policy_low - 1) || (i as u32 == policy_high - 1) {
                     is_valid = !is_valid;
                 }
             }
